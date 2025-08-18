@@ -34,40 +34,20 @@ export default defineComponent({
     const loginFormRef = ref();
     const router = useRouter();
 
-    const submitLogin = async () => {
-      const { username, password } = loginForm.value;
+    const submitLogin = () => {
+         const { username, password } = loginForm.value
 
-      try {
-        const response = await fetch('http://localhost:3000/api/login', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify({ username, password })
-        });
-
-        if (!response.ok) throw new Error('Login failed');
-
-        const data = await response.json();
-        console.log('返回的数据:', data);
-
-        if (data.success) {
-          if(data.user.role === 'admin'){
+         if(username&&password){
+          if(username === 'admin'){
             store.changeShow(true)
-          }else{
-            store.changeShow(false)
+           }else{
+             store.changeShow(false)
           }
           // 登录成功，重定向到 BarChart 组件
           setTimeout(() => {
-            router.push({name: 'BarChart'})
+             router.push({name: 'BarChart'})
           }, 1000)
-        } else {
-          alert(data.message);
         }
-      } catch (error) {
-        console.error(error);
-        alert('登录失败，请重试！');
-      }
     };
 
     return {
