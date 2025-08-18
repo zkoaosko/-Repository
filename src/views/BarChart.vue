@@ -7,6 +7,7 @@
       <el-table-column prop="project" label="Project Name" width="220"></el-table-column>
       <el-table-column prop="overtime" label="Overtime" width="120"></el-table-column>
       <el-table-column prop="hours" label="Hours" width="120"></el-table-column>
+      <el-table-column prop="created_at" label="Created_At" width="200"></el-table-column>
       <el-table-column  label="" width="140">
         <template #default="scope">
           <el-button v-show="store.isshow"  size="small" @click="store.handleDelete(scope.$index, scope.row)">删除</el-button>
@@ -39,7 +40,7 @@ const store = useCounterStore();
 .el_table {
   max-height: 400px;
   overflow-y: auto;
-  width: 50%;
+  width: 55%;
   height: 400px;
   overflow-y: auto;
 }
