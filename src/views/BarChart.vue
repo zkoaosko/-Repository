@@ -50,6 +50,6 @@ const store = useCounterStore();
   position: absolute;
   top: 0;
   right: 0;
-  padding: 20px; /* 添加一些内边距 */
+  padding: 20px;
 }
 </style>

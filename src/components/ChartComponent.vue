@@ -54,14 +54,13 @@ export default defineComponent({
       }
     };
 
-    // When the component is mounted, render the initial chart
     onMounted(() => {
       renderChart();
 
-      // Watch for changes in tableData and re-render the chart
+      //监听数据变化，柱状图同步更新
       watch(() => store.tableData, () => {
         renderChart();
-      }, { deep: true }); // Use deep watch for nested properties
+      }, { deep: true });
     });
 
     return {
